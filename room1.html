@@ -39,7 +39,7 @@
 
     <img class="bunker-background" src="images/underground mockup.svg">
 
-    <div class="b1-container" onclick="openContext({ name: 'SOFA', linkLabel: 'Graphic Design Lounge', desc: 'A curated resource for graphic design inspiration and industry examples. Use when researching visual directions or benchmarking design quality.', url: 'https://www.graphicdesignerlounge.com' })">
+    <div class="b1-container ctx-trigger" onclick="openContext({ name: 'SOFA', linkLabel: 'Graphic Design Lounge', desc: 'A curated resource for graphic design inspiration and industry examples. Use when researching visual directions or benchmarking design quality.', url: 'https://www.graphicdesignerlounge.com' })">
       <div class="b1">
         <img class="sofa" src="images/sofa button copy.png">
         <div class="tool-tip">Graphic Design lounge</div>
@@ -48,14 +48,14 @@
 
     <img src="images/shelf copy.png" class="shelf">
 
-    <div class="b2-container" onclick="openContext({ name: 'TABLE', linkLabel: 'Vev Design — Case Studies', desc: 'A collection of interactive and editorial design case studies. Use when looking for design references.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
+    <div class="b2-container ctx-trigger" onclick="openContext({ name: 'TABLE', linkLabel: 'Vev Design — Case Studies', desc: 'A collection of interactive and editorial design case studies. Use when looking for design references.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
       <div class="b2">
         <img class="table" src="images/table button copy.png">
         <div class="tool-tip">Table</div>
       </div>
     </div>
 
-    <div class="b3-container" onclick="openContext({ name: 'SHELVES', linkLabel: 'Vev Design — Case Studies', desc: 'Secondary shelf reference to Vev design case studies. Use as an alternate entry point for design browsing.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
+    <div class="b3-container ctx-trigger" onclick="openContext({ name: 'SHELVES', linkLabel: 'Vev Design — Case Studies', desc: 'Secondary shelf reference to Vev design case studies. Use as an alternate entry point for design browsing.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
       <div class="b3">
         <img class="shelf-button" src="images/r1 shelf button copy.png">
         <div class="tool-tip">Shelves</div>
@@ -92,28 +92,9 @@
     if (e.key === 'Escape') fadeToPage('index.html');
   });
 
-  let currentUrl = '#';
-  function openContext(data) {
-    document.getElementById('ctx-title').textContent = data.name;
-    document.getElementById('ctx-link-label').textContent = data.linkLabel;
-    document.getElementById('ctx-desc').textContent = data.desc;
-    currentUrl = data.url;
-    document.getElementById('context-menu').classList.add('is-open');
-  }
-  document.getElementById('ctx-close').addEventListener('click', () => {
-    document.getElementById('context-menu').classList.remove('is-open');
-  });
-  document.getElementById('ctx-visit').addEventListener('click', () => {
-    window.open(currentUrl, '_blank', 'noopener noreferrer');
-  });
-  document.addEventListener('click', (e) => {
-    const menu = document.getElementById('context-menu');
-    if (!menu.contains(e.target) && !e.target.closest('.b1-container, .b2-container, .b3-container')) {
-      menu.classList.remove('is-open');
-    }
-  });
 
 </script>
+  <script src="context-menu.js"></script>
   <script src="nav.js"></script>
 </body>
 </html>

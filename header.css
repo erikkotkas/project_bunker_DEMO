@@ -59,6 +59,31 @@
     transform: translateY(1px);
 }
 
+.back {
+    font-family: "lores-12", monospace;
+    font-size: 16px;
+    font-weight: normal;
+    background-color: #000;
+    color: #fff;
+    border: 3px solid #444;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 24px;
+}
+
+.back:hover {
+    background-color: #333;
+    border-color: #138A23;
+    color: #138A23;
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(19, 138, 35, 0.5);
+}
+
+.back:active {
+    transform: translateY(1px);
+}
+
 .map-button {
     height: 46px;
     display: inline-flex;

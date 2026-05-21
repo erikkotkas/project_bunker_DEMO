@@ -7,7 +7,13 @@
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="context-menu.css">
 
-<header class="header">
+
+</head>
+
+<body>
+  <div id="page-fade" class="is-active" ></div>
+
+  <header class="header">
   <div class="left-section">
   <button onclick="back()" class="back">&larr; Back</button>
   </div>
@@ -18,11 +24,6 @@
   </div>
 
 </header>
-
-</head>
-
-<body>
-  <div id="page-fade" class="is-active" ></div>
 
   <aside id="context-menu" class="context-menu">
   <div class="context-menu-header">
@@ -41,42 +42,33 @@
 
     <img class="bunker-background" src="images/gym.png">
 
-    <div class="b1-container">
-      <a href="https://www.graphicdesignerlounge.com"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="b1">
+    <div class="b1-container ctx-trigger">
+      <div class="b1" onclick="openContext({ name: 'BENCH', linkLabel: 'Graphic Design Lounge', desc: 'A curated resource for graphic design inspiration and industry examples. Use when researching visual directions or benchmarking design quality.', url: 'https://www.graphicdesignerlounge.com' })">
         <img class="sofa" src="images/bench.png">
-        <div class="tool-tip">Graphic Design lounge</div>
-      </a>
+        <div class="tool-tip">Bench</div>
+      </div>
     </div>
 
     
 
-    <div class="b2-container">
-      <a class="b2"
-         href="https://www.vev.design/blog/case-study-design-examples/"
-         target="_blank"
-         rel="noopener noreferrer">
+    <div class="b2-container ctx-trigger">
+      <div class="b2" onclick="openContext({ name: 'TREADMILL', linkLabel: 'Vev Design — Case Studies', desc: 'A collection of interactive and editorial design case studies. Use when looking for design references.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
         <img class="table" src="images/treadmill.png">
-        <div class="tool-tip">Table</div>
-      </a>
+        <div class="tool-tip">Treadmill</div>
+      </div>
     </div>
 
-    <div class="b3-container">
-      <a class="b3"
-         href="https://www.vev.design/blog/case-study-design-examples/"
-         target="_blank"
-         rel="noopener noreferrer">
+    <div class="b3-container ctx-trigger">
+      <div class="b3" onclick="openContext({ name: 'PUNCH BAG', linkLabel: 'Vev Design — Case Studies', desc: 'Secondary reference to Vev design case studies. Use as an alternate entry point for design browsing.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
         <img class="shelf-button" src="images/punchbag.png">
-        <div class="tool-tip">Shelves</div>
-      </a>
+        <div class="tool-tip">Punch Bag</div>
+      </div>
     </div>
   </div>
 
   <img class="ground " src="images/ground rooms.png" alt="">
 <script>
-  window.CURRENT_ROOM = 1;
+  window.CURRENT_ROOM = 6;
 
   const fade = document.getElementById("page-fade");
 
@@ -104,28 +96,9 @@
     if (e.key === 'Escape') fadeToPage('index.html');
   });
 
-  let currentUrl = '#';
-  function openContext(data) {
-    document.getElementById('ctx-title').textContent = data.name;
-    document.getElementById('ctx-link-label').textContent = data.linkLabel;
-    document.getElementById('ctx-desc').textContent = data.desc;
-    currentUrl = data.url;
-    document.getElementById('context-menu').classList.add('is-open');
-  }
-  document.getElementById('ctx-close').addEventListener('click', () => {
-    document.getElementById('context-menu').classList.remove('is-open');
-  });
-  document.getElementById('ctx-visit').addEventListener('click', () => {
-    window.open(currentUrl, '_blank', 'noopener noreferrer');
-  });
-  document.addEventListener('click', (e) => {
-    const menu = document.getElementById('context-menu');
-    if (!menu.contains(e.target) && !e.target.closest('.b1-container, .b2-container, .b3-container')) {
-      menu.classList.remove('is-open');
-    }
-  });
 
 </script>
+  <script src="context-menu.js"></script>
   <script src="nav.js"></script>
 </body>
 </html>

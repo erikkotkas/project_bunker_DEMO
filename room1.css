@@ -176,32 +176,6 @@ font-family: "lores-12", monospace;
     opacity: 1;
 }
 
-.back {
-    position: fixed;
-    bottom: 20px;
-    left: 24px;
-    font-family: "lores-12", monospace;
-    font-size: 16px;
-    font-weight: normal;
-    background-color: #000;
-    color: #fff;
-    border: 3px solid #444;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.back:hover {
-    background-color: #333;
-    border-color: #138A23;
-    color: #138A23;
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px rgba(19, 138, 35, 0.5);
-}
-
-.back:active {
-    transform: translateY(1px);
-}
 
 
     .b3-container {
