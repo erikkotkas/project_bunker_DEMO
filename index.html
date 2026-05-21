@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="general.css">
+<link rel="stylesheet" href="background.css">
+   <link rel="stylesheet" href="video.css">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
+   <title> mockup </title>
+
+<header class="header">
+  <div class="left-section">
+  </div>
+  <div class="right-section">
+    <button class="btn map-button" type="button" aria-label="Open map">
+      <img class="map-button-icon" src="images/compass-icon.svg" alt="">
+    </button>
+  </div>
+
+</header>
+</head>
+
+<body>
+	
+ 
+  
+  <div class="video-container">
+
+    <video id="introVideo" id="introVideo"class="intro-video" autoplay muted  width:100vw; >
+  <source  class="video" none;
+ src="videos/Part_1.webm" type="video/webm">
+</video>
+<video id="loopGif" class="loop-gif" autoplay muted loop playsinline>
+  <source src="videos/Part_2.webm" type="video/webm">
+</video>
+</div>
+  
+  <div id="page-fade"></div>
+  
+
+  
+<div class="container">
+  
+    <div class="background-container">
+<img class="bunker-background" src="images/underground_structure.png" >
+
+<div class="room1">    
+<button class="room1Button" >Coming Soon!</button>
+</div>
+
+<div class="room3">    
+<button class="room3Button" >Coming Soon!</button>
+</div>
+
+<div class="room4">    
+<button class="room4Button" >Coming Soon!</button>
+</div>
+
+<div class="room5">    
+<button class="room5Button" > Coming Soon! </button>
+</div>
+
+<div class="room6">    
+<button class="room6Button" onclick="changeRoom6()">Gym</button>
+</div>
+
+<div class="room7">    
+<button class="room7Button" >Coming Soon!</button>
+</div>
+
+<div class="room8">    
+<button class="room8Button" >Coming Soon!</button>
+</div>
+
+<div class="room9">    
+<button class="room9Button" onclick="changeRoom9()">Pub</button>
+</div>
+
+<div class="room10">    
+<button class="room10Button" >Coming Soon!</button>
+</div>
+
+<div class="room2">    
+<button class="bunkerRoom" >Coming Soon!</button>
+<div class=" room-hover"></div>
+
+</div>
+
+</div>
+<img class="ground " src="images/ground 1.png" alt="">
+</div>
+<script>
+ 
+  
+  
+  
+  //video start/gif
+
+  const introVideo = document.getElementById("introVideo");
+  const loopGif = document.getElementById("loopGif");
+
+  introVideo.addEventListener("ended", () => {
+    introVideo.style.display = "none";
+    loopGif.style.display = "block";
+  });
+  
+  const video = document.getElementById("introVideo");
+
+  video.addEventListener("ended", () => {
+    video.style.display = "none";
+  });
+
+
+
+
+  
+  //fade to black
+  
+  const fade = document.getElementById("page-fade");
+
+  function resetFade() {
+    fade.style.transition = "none";
+    fade.classList.remove("is-active");
+
+    fade.offsetHeight;
+
+    fade.style.transition = "";
+  }
+
+  window.addEventListener("pageshow", (event) => {
+    const shouldFadeIn = sessionStorage.getItem("fade-transition") === "true";
+    sessionStorage.removeItem("fade-transition");
+
+    if (event.persisted) {
+      resetFade();
+      return;
+    }
+
+    if (shouldFadeIn) {
+      fade.style.transition = "none";
+      fade.classList.add("is-active");
+
+      fade.offsetHeight;
+
+      fade.style.transition = "";
+
+      requestAnimationFrame(() => {
+        fade.classList.remove("is-active");
+      });
+    } else {
+      resetFade();
+    }
+  });
+
+  function fadeToPage(url) {
+    sessionStorage.setItem("scrollY", window.scrollY);
+    sessionStorage.setItem("returning", "true");
+    sessionStorage.setItem("fade-transition", "true");
+
+    fade.style.transition = "";
+    fade.classList.add("is-active");
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  }
+
+  
+  //navigation
+  
+  function back() {
+    fadeToPage("bunker.html");
+  }
+
+  function changeRoom1() {
+    fadeToPage("room1.html");
+  }
+
+  function changeRoom2() {
+    fadeToPage("room2.html");
+  }
+
+  function changeRoom3() {
+    fadeToPage("room3.html");
+  }
+
+  function changeRoom4() {
+    fadeToPage("room4.html");
+  }
+  function changeRoom5() {
+    fadeToPage("room5.html");
+  }
+  function changeRoom6() {
+    fadeToPage("room6.html");
+  }
+  function changeRoom7() {
+    fadeToPage("room7.html");
+  }
+  function changeRoom8() {
+    fadeToPage("room8.html");
+  }
+  function changeRoom9() {
+    fadeToPage("room9.html");
+  }
+  function changeRoom10() {
+    fadeToPage("room10.html");
+  }
+
+  function changeRoomHome() {
+    fadeToPage("bunker.html");
+  }
+
+
+
+
+
+//header script
+
+(function () {
+  'use strict';
+
+  var ROOMS = [
+    { id: 1, name: 'ROOM 1', desc: 'Living quarters', href: 'room1.html' },
+    { id: 2, name: 'ROOM 2', desc: 'Navigation test room', href: 'room2.html' },
+    { id: 3, name: 'ROOM 3', desc: 'Room description', href: 'room3.html' },
+    { id: 4, name: 'ROOM 4', desc: 'Room description', href: 'room4.html' },
+    { id: 5, name: 'ROOM 5', desc: 'Room description', href: 'room5.html' },
+    { id: 6, name: 'ROOM 6', desc: 'Room description', href: 'room6.html' }
+  ];
+
+  var currentRoom = typeof window.CURRENT_ROOM !== 'undefined' ? window.CURRENT_ROOM : null;
+  var selectedRoom = currentRoom;
+  var open = false;
+
+  function getRoom(id) {
+    return ROOMS.filter(function (room) { return room.id === id; })[0] || null;
+  }
+
+  function buildMenu() {
+    return '<aside id="map-menu" class="map-menu" aria-label="Room navigation">' +
+      '<div class="menu-title">ROOM SELECT</div>' +
+      '<div class="menu-map" aria-hidden="true">' +
+        '<svg viewBox="0 0 280 390" class="menu-map-svg" xmlns="http://www.w3.org/2000/svg">' +
+          '<rect class="menu-map-shaft" x="126" y="0" width="28" height="390"></rect>' +
+          '<rect class="menu-map-corridor" x="80" y="62" width="120" height="26"></rect>' +
+          '<rect class="menu-map-room" data-room="1" x="20" y="45" width="80" height="58"></rect>' +
+          '<rect class="menu-map-room" data-room="2" x="180" y="45" width="80" height="58"></rect>' +
+          '<text class="menu-map-label" x="60" y="76" text-anchor="middle">01</text>' +
+          '<text class="menu-map-label" x="220" y="76" text-anchor="middle">02</text>' +
+          '<rect class="menu-map-corridor" x="80" y="192" width="120" height="26"></rect>' +
+          '<rect class="menu-map-room" data-room="3" x="20" y="175" width="80" height="58"></rect>' +
+          '<rect class="menu-map-room" data-room="4" x="180" y="175" width="80" height="58"></rect>' +
+          '<text class="menu-map-label" x="60" y="206" text-anchor="middle">03</text>' +
+          '<text class="menu-map-label" x="220" y="206" text-anchor="middle">04</text>' +
+          '<rect class="menu-map-corridor" x="80" y="322" width="120" height="26"></rect>' +
+          '<rect class="menu-map-room" data-room="5" x="20" y="305" width="80" height="58"></rect>' +
+          '<rect class="menu-map-room" data-room="6" x="180" y="305" width="80" height="58"></rect>' +
+          '<text class="menu-map-label" x="60" y="336" text-anchor="middle">05</text>' +
+          '<text class="menu-map-label" x="220" y="336" text-anchor="middle">06</text>' +
+        '</svg>' +
+      '</div>' +
+      '<div class="menu-list">' +
+        ROOMS.map(function (room) {
+          return '<button class="menu-room' + (room.href ? '' : ' is-disabled') + '" type="button" data-room="' + room.id + '"' + (room.href ? '' : ' disabled') + '>' +
+            '<span><span class="menu-room-name">' + room.name + '</span><span class="menu-room-desc">' + room.desc + '</span></span>' +
+          '</button>';
+        }).join('') +
+      '</div>' +
+      '<div class="menu-actions">' +
+        '<button class="btn menu-home" type="button">HOME</button>' +
+        '<button id="menu-enter" class="btn menu-enter" type="button" disabled>ENTER</button>' +
+      '</div>' +
+    '</aside>';
+  }
+
+  function setOpen(nextOpen) {
+    var panel = document.getElementById('map-menu');
+    var button = document.querySelector('.map-button');
+    open = nextOpen;
+    if (panel) panel.classList.toggle('is-open', open);
+    if (button) button.classList.toggle('is-active', open);
+  }
+
+  function updateStates() {
+    var hasDestination = selectedRoom !== null && selectedRoom !== currentRoom;
+
+    document.querySelectorAll('[data-room]').forEach(function (el) {
+      var id = parseInt(el.dataset.room, 10);
+      el.classList.remove('is-current', 'is-location', 'is-selected');
+
+      if (!hasDestination && id === currentRoom) {
+        el.classList.add('is-current');
+      }
+
+      if (hasDestination && id === selectedRoom) {
+        el.classList.add('is-selected');
+      }
+    });
+
+    var enter = document.getElementById('menu-enter');
+    var selected = getRoom(selectedRoom);
+    if (!enter) return;
+    enter.disabled = !(selected && selected.href);
+    enter.textContent = selected && selected.href ? 'ENTER ' + selected.name : 'ENTER';
+  }
+
+  function selectRoom(id) {
+    var room = getRoom(id);
+    if (!room || !room.href) return;
+    selectedRoom = id;
+    updateStates();
+  }
+
+  function goToPage(url) {
+    if (typeof window.fadeToPage === 'function') {
+      window.fadeToPage(url);
+      return;
+    }
+
+    window.location.href = url;
+  }
+
+  function navigateHome() {
+    goToPage('index.html');
+  }
+
+  function navigateSelected() {
+    var room = getRoom(selectedRoom);
+    if (room && room.href) goToPage(room.href);
+  }
+
+  function init() {
+    var header = document.querySelector('.header');
+    var mapButton = document.querySelector('.map-button');
+    if (!header || !mapButton) return;
+
+    header.insertAdjacentHTML('afterend', buildMenu());
+
+    mapButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+      setOpen(!open);
+    });
+
+    document.querySelectorAll('.menu-room, .menu-map-room').forEach(function (el) {
+      el.addEventListener('click', function () {
+        selectRoom(parseInt(el.dataset.room, 10));
+      });
+    });
+
+    document.querySelector('.menu-home').addEventListener('click', navigateHome);
+    document.getElementById('menu-enter').addEventListener('click', navigateSelected);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && open) {
+        var room = getRoom(selectedRoom);
+        if (room && room.href) goToPage(room.href);
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      var panel = document.getElementById('map-menu');
+      if (!open || !panel) return;
+      if (!panel.contains(event.target) && event.target !== mapButton) setOpen(false);
+    });
+
+    updateStates();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  const savedY = sessionStorage.getItem("scrollY");
+  if (savedY !== null) {
+    sessionStorage.removeItem("scrollY");
+    window.addEventListener("load", function () {
+      window.scrollTo(0, parseInt(savedY, 10));
+    });
+  }
+})();
+
+
+
+
+
+</script>
+
+</body>
+
+
+</html>

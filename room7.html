@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="room1.css">
+  <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
+</head>
+
+<body>
+  <div id="page-fade" class="is-active" ></div>
+
+  <div class="background-container">
+    <button onclick="back()" class="back">&larr; Back</button>
+
+    <img class="bunker-background" src="images/underground mockup.svg">
+
+    <div class="b1-container">
+      <a href="https://www.graphicdesignerlounge.com"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="b1">
+        <img class="sofa" src="images/sofa button copy.png">
+        <div class="tool-tip">Graphic Design lounge</div>
+      </a>
+    </div>
+
+    <img src="images/shelf copy.png" class="shelf">
+
+    <div class="b2-container">
+      <a class="b2"
+         href="https://www.vev.design/blog/case-study-design-examples/"
+         target="_blank"
+         rel="noopener noreferrer">
+        <img class="table" src="images/table button copy.png">
+        <div class="tool-tip">Table</div>
+      </a>
+    </div>
+
+    <div class="b3-container">
+      <a class="b3"
+         href="https://www.vev.design/blog/case-study-design-examples/"
+         target="_blank"
+         rel="noopener noreferrer">
+        <img class="shelf-button" src="images/r1 shelf button copy.png">
+        <div class="tool-tip">Shelves</div>
+      </a>
+    </div>
+  </div>
+
+  
+<script>
+
+  const fade = document.getElementById("page-fade");
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      fade.style.transition = "none";
+      fade.classList.remove("is-active");
+      fade.offsetHeight;
+      fade.style.transition = "";
+      return;
+    }
+
+    setTimeout(() => {
+      fade.classList.remove("is-active");
+    }, 100);
+  });
+
+  function fadeToPage(url) {
+    fade.classList.add("is-active");
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  }
+
+  function back() {
+    fadeToPage("index.html");
+  }
+
+
+
+  function fadeToPage(url) {
+    sessionStorage.setItem("fade-transition", "true");
+
+    fade.style.transition = "";
+    fade.classList.add("is-active");
+
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  }
+
+  function back() {
+    fadeToPage("index.html");
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') fadeToPage('index.html');
+  });
+
+  function changeRoom1() {
+    fadeToPage("room1.html");
+  }
+
+  function changeRoom2() {
+    fadeToPage("room2.html");
+  }
+
+  function changeRoom3() {
+    fadeToPage("room3.html");
+  }
+
+  function changeRoom4() {
+    fadeToPage("room4.html");
+  }
+
+  function changeRoomHome() {
+    fadeToPage("index.html");
+  }
+</script>
+</body>
+</html>
