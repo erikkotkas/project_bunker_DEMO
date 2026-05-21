@@ -178,7 +178,7 @@ font-family: "lores-12", monospace;
 
 .back {
     position: fixed;
-    top: 7px;
+    bottom: 20px;
     left: 24px;
     font-family: "lores-12", monospace;
     font-size: 16px;
