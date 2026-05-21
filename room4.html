@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="room1.css">
+  <link rel="stylesheet" href="room.css">
   <link rel="stylesheet" href="general.css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="context-menu.css">
@@ -33,30 +33,70 @@
 
   <div class="background-container">
 
-    <img class="bunker-background" src="images/underground mockup.svg">
+    <img class="bunker-background" src="images/room_shell@2x.png">
 
-    <div class="b1-container ctx-trigger">
-      <div class="b1" onmouseenter="openContext({ name: 'SOFA', linkLabel: 'Graphic Design Lounge', desc: 'A curated resource for graphic design inspiration and industry examples. Use when researching visual directions or benchmarking design quality.', url: 'https://www.graphicdesignerlounge.com' })" onmouseleave="closeContext()" onclick="visitContext()">
-        <img class="sofa" src="images/sofa button copy.png">
-        <div class="tool-tip">Graphic Design lounge</div>
-      </div>
+    <!-- Clock (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 35.70%; top: 28.76%; width: 5.71%;"
+         onmouseenter="openContext({ name: 'CLOCK', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/clock@2x.png">
+      <div class="tool-tip">Clock</div>
     </div>
 
-    <img src="images/shelf copy.png" class="shelf">
-
-    <div class="b2-container ctx-trigger">
-      <div class="b2" onmouseenter="openContext({ name: 'TABLE', linkLabel: 'Vev Design — Case Studies', desc: 'A collection of interactive and editorial design case studies. Use when looking for design references.', url: 'https://www.vev.design/blog/case-study-design-examples/' })" onmouseleave="closeContext()" onclick="visitContext()">
-        <img class="table" src="images/table button copy.png">
-        <div class="tool-tip">Table</div>
-      </div>
+    <!-- Picture frame (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 34.27%; top: 42.44%; width: 8.57%;"
+         onmouseenter="openContext({ name: 'PICTURE FRAME', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/picture_frame@2x.png">
+      <div class="tool-tip">Picture Frame</div>
     </div>
 
-    <div class="b3-container ctx-trigger">
-      <div class="b3" onmouseenter="openContext({ name: 'SHELVES', linkLabel: 'Vev Design — Case Studies', desc: 'Secondary reference to Vev design case studies. Use as an alternate entry point for design browsing.', url: 'https://www.vev.design/blog/case-study-design-examples/' })" onmouseleave="closeContext()" onclick="visitContext()">
-        <img class="shelf-button" src="images/r1 shelf button copy.png">
-        <div class="tool-tip">Shelves</div>
-      </div>
+    <!-- Bottle shelf left (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 32.13%; top: 56.13%; width: 10.71%;"
+         onmouseenter="openContext({ name: 'SHELF', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/shelf_left@2x.png">
+      <div class="tool-tip">Shelf</div>
     </div>
+
+    <!-- TV unit (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 46.42%; top: 27.37%; width: 25.00%;"
+         onmouseenter="openContext({ name: 'TV', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/tv_unit@2x.png">
+      <div class="tool-tip">TV</div>
+    </div>
+
+    <!-- Right shelf (decoration only) -->
+    <div class="asset-container no-click"
+         style="left: 73.57%; top: 21.90%; width: 10.00%;">
+      <img class="asset-img" src="images/shelf_right@2x.png">
+    </div>
+
+    <!-- Beer table (clickable) -->
+    <div class="asset-container ctx-trigger"
+         style="left: 71.43%; top: 67.07%; width: 10.00%;"
+         onmouseenter="openContext({ name: 'SIDE TABLE', linkLabel: 'Placeholder', desc: 'Placeholder description.', url: '#' })"
+         onmouseleave="closeContext()"
+         onclick="visitContext()">
+      <img class="asset-img" src="images/Beer_table@2x.png">
+      <div class="tool-tip">Side Table</div>
+    </div>
+
+    <!-- Sofa + man (decoration only) -->
+    <div class="asset-container no-click"
+         style="left: 47.84%; top: 56.13%; width: 22.15%;">
+      <img class="asset-img" src="images/Sofa@2x.png">
+    </div>
+
   </div>
 
 <script>
@@ -87,7 +127,6 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') fadeToPage('index.html');
   });
-
 </script>
   <script src="context-menu.js"></script>
   <script src="nav.js"></script>

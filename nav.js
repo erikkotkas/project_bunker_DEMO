@@ -5,12 +5,12 @@
     { id: 1,  name: 'ROOM 1',  desc: 'Living quarters',      href: 'room1.html' },
     { id: 2,  name: 'ROOM 2',  desc: 'Room description',     href: 'room2.html' },
     { id: 3,  name: 'ROOM 3',  desc: 'Room description',     href: 'room3.html' },
-    { id: 4,  name: 'ROOM 4',  desc: 'Room description',     href: 'room4.html' },
+    { id: 4,  name: 'LIVING ROOM', desc: 'Room description',  href: 'room4.html' },
     { id: 5,  name: 'ROOM 5',  desc: 'Room description',     href: 'room5.html' },
-    { id: 6,  name: 'ROOM 6',  desc: 'Gym',                  href: 'room6.html' },
+    { id: 6,  name: 'GYM',      desc: 'Gym',                  href: 'room6.html' },
     { id: 7,  name: 'ROOM 7',  desc: 'Room description',     href: 'room7.html' },
     { id: 8,  name: 'ROOM 8',  desc: 'Room description',     href: 'room8.html' },
-    { id: 9,  name: 'ROOM 9',  desc: 'Pub',                  href: 'room9.html' },
+    { id: 9,  name: 'PUB',      desc: 'Pub',                  href: 'room9.html' },
     { id: 10, name: 'ROOM 10', desc: 'Room description',     href: 'room10.html' }
   ];
 
