@@ -19,9 +19,6 @@
   </div>
   <div class="context-menu-link">Links to: <span id="ctx-link-label"></span></div>
   <div class="context-menu-desc" id="ctx-desc"></div>
-  <div class="context-menu-actions">
-    <button class="btn" id="ctx-visit">VISIT</button>
-  </div>
 </aside>
 
   <header class="header">
@@ -39,7 +36,7 @@
 
     <img class="bunker-background" src="images/underground mockup.svg">
 
-    <div class="b1-container ctx-trigger" onclick="openContext({ name: 'SOFA', linkLabel: 'Graphic Design Lounge', desc: 'A curated resource for graphic design inspiration and industry examples. Use when researching visual directions or benchmarking design quality.', url: 'https://www.graphicdesignerlounge.com' })">
+    <div class="b1-container ctx-trigger" onmouseenter="openContext({ name: 'SOFA', linkLabel: 'Graphic Design Lounge', desc: 'A curated resource for graphic design inspiration and industry examples. Use when researching visual directions or benchmarking design quality.', url: 'https://www.graphicdesignerlounge.com' })" onmouseleave="closeContext()" onclick="visitContext()">
       <div class="b1">
         <img class="sofa" src="images/sofa button copy.png">
         <div class="tool-tip">Graphic Design lounge</div>
@@ -48,14 +45,14 @@
 
     <img src="images/shelf copy.png" class="shelf">
 
-    <div class="b2-container ctx-trigger" onclick="openContext({ name: 'TABLE', linkLabel: 'Vev Design — Case Studies', desc: 'A collection of interactive and editorial design case studies. Use when looking for design references.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
+    <div class="b2-container ctx-trigger" onmouseenter="openContext({ name: 'TABLE', linkLabel: 'Vev Design — Case Studies', desc: 'A collection of interactive and editorial design case studies. Use when looking for design references.', url: 'https://www.vev.design/blog/case-study-design-examples/' })" onmouseleave="closeContext()" onclick="visitContext()">
       <div class="b2">
         <img class="table" src="images/table button copy.png">
         <div class="tool-tip">Table</div>
       </div>
     </div>
 
-    <div class="b3-container ctx-trigger" onclick="openContext({ name: 'SHELVES', linkLabel: 'Vev Design — Case Studies', desc: 'Secondary shelf reference to Vev design case studies. Use as an alternate entry point for design browsing.', url: 'https://www.vev.design/blog/case-study-design-examples/' })">
+    <div class="b3-container ctx-trigger" onmouseenter="openContext({ name: 'SHELVES', linkLabel: 'Vev Design — Case Studies', desc: 'Secondary shelf reference to Vev design case studies. Use as an alternate entry point for design browsing.', url: 'https://www.vev.design/blog/case-study-design-examples/' })" onmouseleave="closeContext()" onclick="visitContext()">
       <div class="b3">
         <img class="shelf-button" src="images/r1 shelf button copy.png">
         <div class="tool-tip">Shelves</div>
