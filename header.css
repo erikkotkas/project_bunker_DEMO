@@ -60,12 +60,12 @@
 }
 
 .map-button {
-    width: 54px;
     height: 46px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 12px;
+    gap: 7px;
+    padding: 8px 14px;
 }
 
 .map-button-icon {
