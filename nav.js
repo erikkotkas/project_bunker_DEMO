@@ -11,7 +11,7 @@
     { id: 7,  name: 'BEDROOM', desc: 'Room description',     href: 'room7.html' },
     { id: 8,  name: 'ROOM 8',  desc: 'Room description',     href: 'room8.html' },
     { id: 9,  name: 'PUB',      desc: 'Pub',                  href: 'room9.html' },
-    { id: 10, name: 'ROOM 10', desc: 'Room description',     href: 'room10.html' }
+    { id: 10, name: 'HMP KERNING', desc: 'Room description',     href: 'room10.html' }
   ];
 
   var currentRoom = typeof window.CURRENT_ROOM !== 'undefined' ? window.CURRENT_ROOM : null;
