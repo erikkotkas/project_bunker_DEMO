@@ -8,7 +8,7 @@
     { id: 4,  name: 'LIVING ROOM', desc: 'Room description',  href: 'room4.html' },
     { id: 5,  name: 'ROOM 5',  desc: 'Room description',     href: 'room5.html' },
     { id: 6,  name: 'GYM',      desc: 'Gym',                  href: 'room6.html' },
-    { id: 7,  name: 'ROOM 7',  desc: 'Room description',     href: 'room7.html' },
+    { id: 7,  name: 'BEDROOM', desc: 'Room description',     href: 'room7.html' },
     { id: 8,  name: 'ROOM 8',  desc: 'Room description',     href: 'room8.html' },
     { id: 9,  name: 'PUB',      desc: 'Pub',                  href: 'room9.html' },
     { id: 10, name: 'ROOM 10', desc: 'Room description',     href: 'room10.html' }
