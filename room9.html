@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="room9.css">
+  <link rel="stylesheet" href="room.css">
   <link rel="stylesheet" href="general.css">
-  <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="context-menu.css">
+  <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
 </head>
-
 <body>
-  <div id="page-fade" class="is-active" ></div>
-
-  <header class="header">
-  <div class="left-section">
-  <button onclick="back()" class="back">&larr; Back</button>
-  </div>
-  <div class="right-section">
-    <button class="btn map-button" type="button" aria-label="Open map">
-      Map <img class="map-button-icon" src="images/compass-icon.svg" alt="">
-    </button>
-  </div>
-
-</header>
+  <div id="page-fade" class="is-active"></div>
 
   <aside id="context-menu" class="context-menu">
     <div class="context-menu-header">
@@ -32,65 +19,52 @@
     <div class="context-menu-desc" id="ctx-desc"></div>
   </aside>
 
+  <header class="header">
+    <div class="left-section">
+      <button onclick="back()" class="back">&larr; Back</button>
+    </div>
+    <div class="right-section">
+      <button class="btn map-button" type="button" aria-label="Open map">
+        Map <img class="map-button-icon" src="images/compass-icon.svg" alt="">
+      </button>
+    </div>
+  </header>
+
   <div class="background-container">
-
-
-    <img class="bunker-background" src="images/PUB.png">
-
-    <div class="b1-container ctx-trigger">
-      <div class="b1" onmouseenter="openContext({ name: 'JUKEBOX', linkLabel: 'Graphic Design Lounge', desc: 'A curated resource for graphic design inspiration and industry examples. Use when researching visual directions or benchmarking design quality.', url: 'https://www.graphicdesignerlounge.com' })" onmouseleave="closeContext()" onclick="visitContext()">
-        <img class="sofa" src="images/jukebox.png">
-        <div class="tool-tip">Jukebox</div>
-      </div>
-    </div>
-
-
-
-    <div class="b2-container ctx-trigger">
-      <div class="b2" onmouseenter="openContext({ name: 'SIGN', linkLabel: 'Vev Design — Case Studies', desc: 'A collection of interactive and editorial design case studies. Use when looking for design references.', url: 'https://www.vev.design/blog/case-study-design-examples/' })" onmouseleave="closeContext()" onclick="visitContext()">
-        <img class="table" src="images/sign.png">
-        <div class="tool-tip">Sign</div>
-      </div>
-    </div>
-
-    <div class="b3-container ctx-trigger">
-      <div class="b3" onmouseenter="openContext({ name: 'BARMAN', linkLabel: 'Vev Design — Case Studies', desc: 'Secondary reference to Vev design case studies. Use as an alternate entry point for design browsing.', url: 'https://www.vev.design/blog/case-study-design-examples/' })" onmouseleave="closeContext()" onclick="visitContext()">
-        <img class="shelf-button" src="images/man.png">
-        <div class="tool-tip">Barman</div>
-      </div>
-    </div>
+    <img class="bunker-background" src="images/room_shell_tnl_left@2x.png">
+    <!-- assets go here -->
   </div>
+  <img class="ground" src="images/ground rooms.png" alt="">
 
-  <img class="ground " src="images/ground rooms.png" alt="">
-<script>
-  window.CURRENT_ROOM = 9;
+  <script>
+    window.CURRENT_ROOM = 9;
 
-  const fade = document.getElementById("page-fade");
+    const fade = document.getElementById("page-fade");
 
-  window.addEventListener("pageshow", (event) => {
-    if (event.persisted) {
-      fade.style.transition = "none";
-      fade.classList.remove("is-active");
-      fade.offsetHeight;
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        fade.style.transition = "none";
+        fade.classList.remove("is-active");
+        fade.offsetHeight;
+        fade.style.transition = "";
+        return;
+      }
+      setTimeout(() => { fade.classList.remove("is-active"); }, 100);
+    });
+
+    function fadeToPage(url) {
+      sessionStorage.setItem("fade-transition", "true");
       fade.style.transition = "";
-      return;
+      fade.classList.add("is-active");
+      setTimeout(() => { window.location.href = url; }, 500);
     }
-    setTimeout(() => { fade.classList.remove("is-active"); }, 100);
-  });
 
-  function fadeToPage(url) {
-    sessionStorage.setItem("fade-transition", "true");
-    fade.style.transition = "";
-    fade.classList.add("is-active");
-    setTimeout(() => { window.location.href = url; }, 500);
-  }
+    function back() { fadeToPage("index.html"); }
 
-  function back() { fadeToPage("index.html"); }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') fadeToPage('index.html');
-  });
-</script>
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') fadeToPage('index.html');
+    });
+  </script>
   <script src="context-menu.js"></script>
   <script src="nav.js"></script>
 </body>

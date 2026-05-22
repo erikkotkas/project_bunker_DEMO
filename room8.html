@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="room1.css">
+  <link rel="stylesheet" href="room.css">
   <link rel="stylesheet" href="general.css">
-  <link rel="stylesheet" href="context-menu.css">
   <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="context-menu.css">
   <link rel="stylesheet" href="https://use.typekit.net/bao6qio.css">
 </head>
-
 <body>
-  <div id="page-fade" class="is-active" ></div>
+  <div id="page-fade" class="is-active"></div>
+
+  <aside id="context-menu" class="context-menu">
+    <div class="context-menu-header">
+      <div class="context-menu-title" id="ctx-title"></div>
+      <button class="context-menu-close" id="ctx-close">X</button>
+    </div>
+    <div class="context-menu-link">Links to: <span id="ctx-link-label"></span></div>
+    <div class="context-menu-desc" id="ctx-desc"></div>
+  </aside>
 
   <header class="header">
     <div class="left-section">
@@ -22,81 +30,41 @@
     </div>
   </header>
 
-  <aside id="context-menu" class="context-menu">
-    <div class="context-menu-header">
-      <div class="context-menu-title" id="ctx-title"></div>
-      <button class="context-menu-close" id="ctx-close">X</button>
-    </div>
-    <div class="context-menu-link">Links to: <span id="ctx-link-label"></span></div>
-    <div class="context-menu-desc" id="ctx-desc"></div>
-  </aside>
-
   <div class="background-container">
-
-    <img class="bunker-background" src="images/underground mockup.svg">
-
-    <div class="b1-container">
-      <a href="https://www.graphicdesignerlounge.com"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="b1">
-        <img class="sofa" src="images/sofa button copy.png">
-        <div class="tool-tip">Graphic Design lounge</div>
-      </a>
-    </div>
-
-    <img src="images/shelf copy.png" class="shelf">
-
-    <div class="b2-container">
-      <a class="b2"
-         href="https://www.vev.design/blog/case-study-design-examples/"
-         target="_blank"
-         rel="noopener noreferrer">
-        <img class="table" src="images/table button copy.png">
-        <div class="tool-tip">Table</div>
-      </a>
-    </div>
-
-    <div class="b3-container">
-      <a class="b3"
-         href="https://www.vev.design/blog/case-study-design-examples/"
-         target="_blank"
-         rel="noopener noreferrer">
-        <img class="shelf-button" src="images/r1 shelf button copy.png">
-        <div class="tool-tip">Shelves</div>
-      </a>
-    </div>
+    <img class="bunker-background" src="images/room_shell_tnl_left@2x.png">
+    <!-- assets go here -->
   </div>
+  <img class="ground" src="images/ground rooms.png" alt="">
 
-<script>
-  window.CURRENT_ROOM = 8;
+  <script>
+    window.CURRENT_ROOM = 8;
 
-  const fade = document.getElementById("page-fade");
+    const fade = document.getElementById("page-fade");
 
-  window.addEventListener("pageshow", (event) => {
-    if (event.persisted) {
-      fade.style.transition = "none";
-      fade.classList.remove("is-active");
-      fade.offsetHeight;
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        fade.style.transition = "none";
+        fade.classList.remove("is-active");
+        fade.offsetHeight;
+        fade.style.transition = "";
+        return;
+      }
+      setTimeout(() => { fade.classList.remove("is-active"); }, 100);
+    });
+
+    function fadeToPage(url) {
+      sessionStorage.setItem("fade-transition", "true");
       fade.style.transition = "";
-      return;
+      fade.classList.add("is-active");
+      setTimeout(() => { window.location.href = url; }, 500);
     }
-    setTimeout(() => { fade.classList.remove("is-active"); }, 100);
-  });
 
-  function fadeToPage(url) {
-    sessionStorage.setItem("fade-transition", "true");
-    fade.style.transition = "";
-    fade.classList.add("is-active");
-    setTimeout(() => { window.location.href = url; }, 500);
-  }
+    function back() { fadeToPage("index.html"); }
 
-  function back() { fadeToPage("index.html"); }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') fadeToPage('index.html');
-  });
-</script>
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') fadeToPage('index.html');
+    });
+  </script>
   <script src="context-menu.js"></script>
   <script src="nav.js"></script>
 </body>

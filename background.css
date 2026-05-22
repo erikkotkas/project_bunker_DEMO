@@ -173,18 +173,20 @@ padding: 0;
   cursor: pointer;
 }
 .room1Button,
-.room2button,
+.room2Button,
+.bunkerRoom,
 .room3Button,
 .room4Button,
 .room5Button,
+.room6Button,
 .room7Button,
 .room8Button,
-.room10Button,
-.bunkerRoom {
+.room9Button,
+.room10Button {
     height: 100%;
     width: 100%;
     color: white;
-    opacity: 0.7;
+    opacity: 0;
     border: none;
     background-color: black;
     position: absolute;
@@ -194,23 +196,22 @@ padding: 0;
     margin: 0;
     font-size: 16px;
     font-family: "lores-12", monospace;
+    transition: opacity 0.2s ease;
 }
 
 .room1Button:hover,
- .room-2-button:hover,
- .room3Button:hover,
- .room4Button:hover,
- .room5Button:hover,
- .room6Button:hover,
- .room7Button:hover,
- .room8Button:hover,
- .room9Button:hover,
- .room10Button:hover,
- .bunkerRoom:hover{
-
+.room2Button:hover,
+.bunkerRoom:hover,
+.room3Button:hover,
+.room4Button:hover,
+.room5Button:hover,
+.room6Button:hover,
+.room7Button:hover,
+.room8Button:hover,
+.room9Button:hover,
+.room10Button:hover {
+    opacity: 0.7;
     cursor: pointer;
-    opacity: 0.35;
-    background-color: black;
 }
 
 
@@ -247,28 +248,4 @@ padding: 0;
   z-index: -1;
   position: absolute;
 
-}
-
-.room6Button,
-.room9Button {
-    height: 100%;
-    width: 100%;
-    color: white;
-    opacity: 0;
-    border: none;
-    background-color: black;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0;
-    margin: 0;
-    font-size: 16px;
-    font-family: "lores-12", monospace;
-    transition: opacity 0.2s ease;
-}
-
-.room6Button:hover,
-.room9Button:hover {
-    opacity: 0.7;
-    cursor: pointer;
 }
